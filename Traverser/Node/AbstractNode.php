@@ -146,6 +146,14 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 		return $this->nodeFactory;
 	}
 
+	public function execute(\Closure $closure)
+	{
+		$this->getHandlers()->append(new Handler\ExecuteHandler(function($traversal) use ($closure) {
+				$closure($traversal);
+			});
+		return $this;
+	}
+
 	/**
 	 * trigger 
 	 * 
