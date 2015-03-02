@@ -19,7 +19,7 @@ class GuzzleDownloaderTest extends \PHPUnit_Framework_TestCase
 		$files = $downloader->download('https://www.google.co.jp/images/srpr/logo11w.png');
 
 		$this->assertCount(1, $files);
-		$this->assertInstanceof('O3\Crawler\File\DownloadedFile', $files[0]);
+		$this->assertInstanceof('O3Com\Crawler\File\DownloadedFile', $files[0]);
 		$this->assertEquals('logo11w.png', $files[0]->getOriginalName());
 		$this->assertEquals('png', $files[0]->getExtension());
 	}
