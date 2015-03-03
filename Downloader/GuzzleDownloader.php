@@ -64,7 +64,7 @@ class GuzzleDownloader
 
 		$path = $this->createTmpFile((string)$response->getBody());
 
-		return new DownloadedFile($path, $filename, $mimeType, $size);
+		return new DownloadedFile($path, $response->getEffectiveUrl(), $filename, $mimeType, $size);
 	}
 
 	public function createTmpFile($contents)

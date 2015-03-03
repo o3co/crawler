@@ -27,7 +27,6 @@ class DownloadedFile extends File
 		return self::$extensionGuesser;
 	}
 
-	private $path;
 
 	private $originalName;
 
@@ -35,9 +34,12 @@ class DownloadedFile extends File
 
 	private $size;
 
-	public function __construct($path, $originalName, $mimeType = null, $size = null)
+	private $url;
+
+	public function __construct($path, $url, $originalName, $mimeType = null, $size = null)
 	{
 		parent::__construct($path, true);
+		$this->url = $url;
 		$this->originalName = $originalName;
 		$this->mimeType = $mimeType;
 
@@ -60,18 +62,6 @@ class DownloadedFile extends File
 		return $this->info['content-length'];
 	}
 
-    
-    public function getPath()
-    {
-        return $this->path;
-    }
-    
-    public function setPath($path)
-    {
-        $this->path = $path;
-        return $this;
-    }
-    
     public function getOriginalName()
     {
         return $this->originalName;
@@ -93,5 +83,46 @@ class DownloadedFile extends File
         $this->mimeType = $mimeType;
         return $this;
     }
+    
+    public function getUrl()
+    {
+        return $this->url;
+    }
+    
+    public function setUrl($url)
+    {
+        $this->url = $url;
+        return $this;
+    }
+
+	public function move($dir, $name = null) 
+	{
+		if(!$this->isStreamPath($dir)) {
+			return parent::move($dir, $name);
+		} else {
+			// use file_put_content instead.
+			try {
+				$fp = fopen($this->getPathname(), 'r');
+				if(!$fp) {
+					throw new \RuntimeException('Failed to open file');
+				}
+				file_put_contents($dir . '/' . $name, $fp);
+				
+				fclose($fp);
+			} catch(\Exception $ex) {
+				if($fp) {
+					fclose($fp);
+				}
+				throw $ex;
+			}
+
+			return $dir . '/' . $name;
+		}
+	}
+
+	public function isStreamPath($path)
+	{
+		return (bool)preg_match('/^\w+:\/\//', $path);
+	}
 }
 
