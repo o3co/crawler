@@ -50,5 +50,10 @@ class DefaultNodeFactory implements Factory
 	{
 		return new Node\FormNode($parentNode, $selector);
 	}
+
+	public function createScopeNode(Node $parentNode)
+	{
+		return new Node\ScopeNode($parentNode);
+	}
 }
 

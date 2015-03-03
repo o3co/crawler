@@ -69,5 +69,10 @@ class RootNode extends AbstractNode
 
 		return $page;
 	}
+
+	public function getCrawler(Traversal $traversal)
+	{
+		return $traversal->getCurrentPage()->getCrawler();
+	}
 }
 

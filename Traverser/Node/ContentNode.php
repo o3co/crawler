@@ -34,7 +34,5 @@ abstract class ContentNode extends ChildNode
 
 		return $pager;
 	}
-
-	abstract protected function getCrawler(Traversal $traversal);
 }
 

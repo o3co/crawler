@@ -5,15 +5,16 @@ use O3Com\Crawler\Traverser\Traversal;
 
 class PagerNode extends ConditionalNode 
 {
+	const KEY_COUNT = 'pager.count';
 	protected function doTraverse(Traversal $traversal)
 	{
 		$count= 1;
 		while(1) {
-			$traversal->set('pager.count', $count);
+			$traversal->set(self::KEY_COUNT, $count);
 			
 			$this->getRootHandler()->handle($traversal);
 
-			if(!$condition($traversal, $this->getCrawler($traversal))) {
+			if(!$this->getCondition($traversal)) {
 				break;
 			}
 

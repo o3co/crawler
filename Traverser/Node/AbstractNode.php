@@ -141,6 +141,16 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 		return $node;
 	}
 
+	public function enter()
+	{
+		$node = $this->getNodeFactory()->createScopeNode($this);
+
+		$this->getHandlers()
+			->append(new Handler\NodeHandler($node))
+		;
+		return $node;
+	}
+
 	public function getNodeFactory()
 	{
 		return $this->nodeFactory;
@@ -150,7 +160,7 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 	{
 		$this->getHandlers()->append(new Handler\ExecuteHandler(function($traversal) use ($closure) {
 				$closure($traversal);
-			});
+			}));
 		return $this;
 	}
 
@@ -182,5 +192,6 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 			throw new \InvalidArgumentException(sprintf('There is no method or trigger "%s" is not registered.', $method));
 		}
 	}
+
 }
 
