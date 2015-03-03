@@ -29,6 +29,10 @@ class GuzzleDownloader
 			$paths = (array)$paths;
 		}
 
+		if(empty($paths)) {
+			return array();
+		}
+
 		$client = $this->client;
 
 		foreach($paths as $path) {
