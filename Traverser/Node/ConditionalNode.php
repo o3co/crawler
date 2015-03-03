@@ -46,7 +46,7 @@ abstract class ConditionalNode extends ChildNode
 
 	public function init($closure)
 	{
-		$this->getHandlers()->prepend(new Handler\ExecuteHandler($this->closure));
+		$this->getHandlers()->prepend(new Handler\ExecuteHandler($closure));
 		return $this;
 	}
 
