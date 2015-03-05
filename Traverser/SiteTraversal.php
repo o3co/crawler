@@ -26,10 +26,29 @@ class SiteTraversal extends AbstractTraversal implements Traversal
 		$this->configs = $configs;
 	}
 
-	public function visit($url, $method = 'GET')
+	public function visit($url, $method = 'GET', array $options = array())
 	{
 		$this->dispatch(TraversalEvents::onPrePageVisit, new TraversalEvent($this));
-		$crawler = $this->getClient()->request($method, $url);
+
+		$files = array();
+		$server = array();
+		$content = null;
+
+		if(isset($options['files'])) {
+			$files = $options['files'];
+			unset($options['files']);
+		}
+		if(isset($options['server'])) {
+			$server = $options['server'];
+			unset($options['server']);
+		}
+		if(isset($options['content'])) {
+			$content = $options['content'];
+			unset($options['content']);
+		}
+
+		$crawler = $this->getClient()->request($method, $url, $options, $files, $server, $content);
+
 		$page = new Page($this->getClient()->getRequest(), $this->getClient()->getResponse(), $crawler);
 
 		$this->dispatch(TraversalEvents::onPostPageVisit, new TraversalEvent($this));
