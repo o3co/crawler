@@ -104,6 +104,25 @@ class FormNode extends PartialNode
 		return $page;
 	}
 
+	/**
+	 * send 
+	 *   Send the form data as emulating form submit. 
+	 * @param mixed $action 
+	 * @param mixed $method 
+	 * @access public
+	 * @return void
+	 */
+	public function send($action = null, $method = null, \Closure $send = null)
+	{
+		$page = $this->getNodeFactory()->createPageNode($this);
+
+		// add Node traverse handler
+		$this->getHandlers()->append(new Handler\NodeHandler($page));
+		$this->initSendValueHandlers($page, $action, $method, $send);
+
+		return $page;
+	}
+
 	public function initSetDataHandlers(Node $node, $data)
 	{
 		$node->getHandlers()->prepend(new Handler\ExecuteHandler(function($traversal) use ($data) {
@@ -128,6 +147,50 @@ class FormNode extends PartialNode
 
 					$traversal->set(self::KEY_DATA, $data);
 				}))
+		;
+	}
+
+	public function initSendValueHandlers(PageNode $page, $action = null, $method = null, $send = null) 
+	{
+		$page
+			->onEnterTraverse(function($traversal) use($action, $method, $send) {
+					$form = $this->getForm($traversal);
+					if($action) {
+						// update action of form
+						$form->getNode()->setAttribute('action', $action);
+					}
+
+					if($method) {
+						// update action of form
+						$form->getNode()->setAttribute('method', $action);
+					}
+
+					$url = $form->getUri();
+					$method = $form->getMethod();
+					$form   = $form->getValues();
+
+					$data = $traversal->get(self::KEY_DATA, array());
+					foreach($data as $key => $value) {
+						try {
+							$form[$key] = $value;
+						} catch(\InvalidArgumentException $ex) {
+							throw new \InvalidArgumentException(sprintf('Field "%s" is not exists on form "%s".', $key, $this->getSelector()));
+						}
+					}
+					
+					if(!$send) {
+						$send = function($traversal, $url, $method, $values) {
+							$content = http_build_query($values);
+							$traversal->visit($url, $method, array('server' => array('HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded', 'content' => $content)));
+						};
+					}
+
+					$send($traversal, $url, $method, $form);
+				})
+			// ending the traversing
+			->onLeaveTraverse(function($traversal) {
+					$traversal->back();	
+				})
 		;
 	}
 

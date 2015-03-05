@@ -109,6 +109,19 @@ abstract class ConditionalNode extends ChildNode
 		return $this;
 	}
 
+	public function send($action = null, $method = null, \Closure $send = null)
+	{
+		if(!$this->getOwnerNode() instanceof FormNode) {
+			throw new \RuntimeException('ConditionalNode::submit is only accepted under FormNode.');
+		}
+
+		$page = $this->getNodeFactory()->createPageNode($this);
+		$this->getHandlers()->append(new Handler\NodeHandler($page));
+
+		$this->getOwnerNode()->initSendValueHandlers($page, $action, $method, $send);
+		return $page;
+	}
+
 	public function submit($action = null, $method = null)
 	{
 		if(!$this->getOwnerNode() instanceof FormNode) {

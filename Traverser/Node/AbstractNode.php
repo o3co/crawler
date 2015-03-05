@@ -192,6 +192,5 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 			throw new \InvalidArgumentException(sprintf('There is no method or trigger "%s" is not registered.', $method));
 		}
 	}
-
 }
 
