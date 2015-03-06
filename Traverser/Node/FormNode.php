@@ -60,6 +60,23 @@ class FormNode extends PartialNode
 		}
 	} 
 
+	public function getFormValues(Traversal $traversal)
+	{
+		$form = $this->getForm($traversal);
+		$values = $form->getValues();
+
+		$data = $traversal->get(self::KEY_DATA, array());
+		foreach($data as $key => $value) {
+			try {
+				$values[$key] = $value;
+			} catch(\InvalidArgumentException $ex) {
+				//throw new \InvalidArgumentException(sprintf('Field "%s" is not exists on form "%s".', $key, $this->getSelector($traversal)));
+			}
+		}
+
+		return $values;
+	}
+
 	public function resetForm(Traversal $traversal)
 	{
 		$traversal->set(self::KEY_FORM, null);

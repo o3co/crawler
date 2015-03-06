@@ -7,6 +7,8 @@ use O3Com\Crawler\Traverser\Traversal;
 
 /**
  * ContentNode 
+ *   ContentNode is a Node acts as a ContentHolder.
+ *   PageNode or PartialNode inherit this.
  * 
  * @uses ChildNode
  * @package { PACKAGE }

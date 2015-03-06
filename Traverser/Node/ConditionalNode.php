@@ -70,11 +70,7 @@ abstract class ConditionalNode extends ChildNode
 	 */
 	public function getOwnerNode()
 	{
-		if($this->parentNode instanceof ConditionalNode) {
-			return $this->parentNode->getOwnerNode();
-		} else {
-			return $this->parentNode;
-		}
+		return $this->getContentNode();
 	}
     
     public function getCondition(Traversal $traversal)
@@ -88,61 +84,5 @@ abstract class ConditionalNode extends ChildNode
 		}
         return $this->condition;
     }
-
-	public function setData($data)
-	{
-		if(!$this->getOwnerNode() instanceof FormNode) {
-			throw new \RuntimeException('ConditionalNode::setData is only accepted under FormNode.');
-		}
-
-		$this->getOwnerNode()->initSetDataHandlers($this, $data);
-		return $this;
-	}
-
-	public function set($key, $value) 
-	{
-		if(!$this->getOwnerNode() instanceof FormNode) {
-			throw new \RuntimeException('ConditionalNode::set is only accepted under FormNode.');
-		}
-
-		$this->getOwnerNode()->initSetHandlers($this, $key, $value);
-		return $this;
-	}
-
-	public function send($action = null, $method = null, \Closure $send = null)
-	{
-		if(!$this->getOwnerNode() instanceof FormNode) {
-			throw new \RuntimeException('ConditionalNode::submit is only accepted under FormNode.');
-		}
-
-		$page = $this->getNodeFactory()->createPageNode($this);
-		$this->getHandlers()->append(new Handler\NodeHandler($page));
-
-		$this->getOwnerNode()->initSendValueHandlers($page, $action, $method, $send);
-		return $page;
-	}
-
-	public function submit($action = null, $method = null)
-	{
-		if(!$this->getOwnerNode() instanceof FormNode) {
-			throw new \RuntimeException('ConditionalNode::submit is only accepted under FormNode.');
-		}
-
-		$page = $this->getNodeFactory()->createPageNode($this);
-		$this->getHandlers()->append(new Handler\NodeHandler($page));
-
-		$this->getOwnerNode()->initSubmitHandlers($page, $action, $method);
-		return $page;
-	}
-
-	public function getForm(Traversal $traversal)
-	{
-		return $this->getOwnerNode()->getForm($traversal);
-	}
-
-	public function getCrawler(Traversal $traversal)
-	{
-		return $this->getOwnerNode()->getCrawler($traversal);
-	}
 }
 
