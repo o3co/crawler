@@ -56,7 +56,7 @@ class FormNode extends PartialNode
 
 			return $form;
 		} catch(\InvalidArgumentException $ex) {
-			throw new CssSelectorException(sprintf('Form "%s" is not exists.', $this->getSelector()));
+			throw new CssSelectorException(sprintf('Form "%s" is not exists.', $this->getSelector($traversal)));
 		}
 	} 
 
@@ -174,7 +174,7 @@ class FormNode extends PartialNode
 						try {
 							$form[$key] = $value;
 						} catch(\InvalidArgumentException $ex) {
-							throw new \InvalidArgumentException(sprintf('Field "%s" is not exists on form "%s".', $key, $this->getSelector()));
+							throw new \InvalidArgumentException(sprintf('Field "%s" is not exists on form "%s".', $key, $this->getSelector($traversal)));
 						}
 					}
 					
@@ -214,7 +214,7 @@ class FormNode extends PartialNode
 						try {
 							$form[$key] = $value;
 						} catch(\InvalidArgumentException $ex) {
-							throw new \InvalidArgumentException(sprintf('Field "%s" is not exists on form "%s".', $key, $this->getSelector()));
+							throw new \InvalidArgumentException(sprintf('Field "%s" is not exists on form "%s".', $key, $this->getSelector($traversal)));
 						}
 					}
 					

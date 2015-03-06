@@ -41,15 +41,19 @@ abstract class PartialNode extends ContentNode
 	public function getCrawler(Traversal $traversal)
 	{
 		try {
-			return $this->getParentNode()->getCrawler($traversal)->filter($this->selector);
+			return $this->getParentNode()->getCrawler($traversal)->filter($this->getSelector($traversal));
 		} catch(\InvalidArgumentException $ex) {
-			throw new CssSelectorException(sprintf('Form "%s" is not exists.', $this->selector));
+			throw new CssSelectorException(sprintf('Form "%s" is not exists.', $this->getSelector($traversal)));
 		}
 	}
     
-    public function getSelector()
+    public function getSelector(Traversal $traversal)
     {
-        return $this->selector;
+        $selector = $this->selector;
+		if(is_callable($selector)) {
+			$selector = $selector($traversal);
+		}
+		return $selector;
     }
 }
 
