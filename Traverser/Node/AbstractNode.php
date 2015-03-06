@@ -131,6 +131,16 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 			});
 	}
 
+	public function enterIf($condition)
+	{
+		$node = $this->getNodeFactory()->createIfNode($this, $condition);
+
+		$this->getHandlers()
+			->append(new Handler\NodeHandler($node))
+		;
+		return $node;
+	}
+
 	public function each($condition)
 	{
 		$node = $this->getNodeFactory()->createEachNode($this, $condition);

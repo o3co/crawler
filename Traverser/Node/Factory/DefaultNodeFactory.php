@@ -24,11 +24,18 @@ class DefaultNodeFactory implements Factory
 			return $this->createFormNode($parentNode, $args['selector']);
 		case 'pager':
 			return $this->createPageNode($parentNode, $args['selecctor']);
+		case 'if':
+			return $this->createIfNode($parentNode, $args['condition']);
 		case 'each':
 			return $this->createEachNode($parentNode, $args['condition']);
 		default:
 			throw new \InvalidArgumentException(sprintf('Unknow type of node "%s" to create', $type));
 		}
+	}
+
+	public function createIfNode(Node $parentNode, $condition)
+	{
+		return new Node\IfNode($parentNode, $condition);
 	}
 
 	public function createEachNode(Node $parentNode, $condition)
