@@ -11,6 +11,7 @@ use Symfony\Component\EventDispatcher\Event;
 
 use O3Com\Crawler\Traverser\Node\Factory\DefaultNodeFactory;
 use O3Com\Crawler\Exception\TerminateException;
+use O3Com\Crawler\Exception\SkipException;
 
 /**
  * Site 
@@ -106,6 +107,17 @@ class Site
 				})
 			->addTrigger('terminate', function($traversal) {
 					throw new TerminateException('terminated');
+				})
+			->addTrigger('skip', function($traversal) {
+					throw new SkipException('skip');
+				})
+			->addTrigger('skipIf', function($traversal, $condition) {
+					if(is_callable($condition)) {
+						$condition = call_user_func_arraY($condition, array($traversal));
+					}
+					if($condition) {
+						throw new SkipException('skip');
+					}
 				})
 			->addTriggers(new Trigger\CookieTriggerSubscriber())
 		;
