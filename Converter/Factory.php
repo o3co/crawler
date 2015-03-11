@@ -15,7 +15,7 @@ namespace O3Co\Crawler\Converter;
  * 
  * @package { PACKAGE }
  * @copyright { COPYRIGHT } (c) { COMPANY }
- * @author Yoshi Aoki <yoshi@44services.jp> 
+ * @author Yoshi <yoshi@1o1.co.jp> 
  * @license { LICENSE }
  */
 interface Factory 

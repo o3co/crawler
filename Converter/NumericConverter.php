@@ -7,7 +7,7 @@ namespace O3Co\Crawler\Converter;
  * @uses CompositeConverter
  * @package { PACKAGE }
  * @copyright { COPYRIGHT } (c) { COMPANY }
- * @author Yoshi Aoki <yoshi@44services.jp> 
+ * @author Yoshi <yoshi@1o1.co.jp> 
  * @license { LICENSE }
  */
 class NumericConverter extends StringConverter 

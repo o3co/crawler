@@ -12,7 +12,7 @@ use Application\Core\Factory\AliasedClassFactory;
  * @uses Factory
  * @package { PACKAGE }
  * @copyright { COPYRIGHT } (c) { COMPANY }
- * @author Yoshi Aoki <yoshi@44services.jp> 
+ * @author Yoshi <yoshi@1o1.co.jp> 
  * @license { LICENSE }
  */
 class TypedFactory extends AliasedClassFactory implements Factory

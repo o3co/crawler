@@ -14,7 +14,7 @@ use Psr\Log\LoggerInterface,
  * @abstract
  * @package { PACKAGE }
  * @copyright { COPYRIGHT } (c) { COMPANY }
- * @author Yoshi Aoki <yoshi@44services.jp> 
+ * @author Yoshi <yoshi@1o1.co.jp> 
  * @license { LICENSE }
  */
 abstract class AbstractConverter implements Converter, LoggerAwareInterface
