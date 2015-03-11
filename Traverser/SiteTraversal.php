@@ -1,12 +1,12 @@
 <?php
-namespace O3Com\Crawler\Traverser;
+namespace O3Co\Crawler\Traverser;
 
-use O3Com\Crawler\Site;
-use O3Com\Crawler\Client;
-use O3Com\Crawler\Event\TraversalEvent,
-	O3Com\Crawler\Event\TraversalEvents
+use O3Co\Crawler\Site;
+use O3Co\Crawler\Client;
+use O3Co\Crawler\Event\TraversalEvent,
+	O3Co\Crawler\Event\TraversalEvents
 ;
-use O3Com\Crawler\Exception\NoPageException;
+use O3Co\Crawler\Exception\NoPageException;
 
 class SiteTraversal extends AbstractTraversal implements Traversal 
 {

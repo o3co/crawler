@@ -1,12 +1,12 @@
 <?php
-namespace O3Com\Crawler\Traverser\Node;
+namespace O3Co\Crawler\Traverser\Node;
 
-use O3Com\Crawler\Traverser\AbstractTraverser;
-use O3Com\Crawler\Traverser\Traversal;
-use O3Com\Crawler\Traverser\Handler;
+use O3Co\Crawler\Traverser\AbstractTraverser;
+use O3Co\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Traverser\Handler;
 
-use O3Com\Crawler\Site;
-use O3Com\Crawler\Exception\NoPageException;
+use O3Co\Crawler\Site;
+use O3Co\Crawler\Exception\NoPageException;
 
 /**
  * RootNode 

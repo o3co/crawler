@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Util;
+namespace O3Co\Crawler\Util;
 
 /**
  * HttpTool 

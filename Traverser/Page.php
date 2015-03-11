@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Traverser;
+namespace O3Co\Crawler\Traverser;
 
 use Symfony\Component\BrowserKit\Request, 
 	Symfony\Component\BrowserKit\Response; 

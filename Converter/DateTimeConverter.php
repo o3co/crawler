@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Converter;
+namespace O3Co\Crawler\Converter;
 
 abstract class DateTimeConverter extends AbstractConverter 
 {

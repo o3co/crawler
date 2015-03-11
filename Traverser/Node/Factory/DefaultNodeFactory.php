@@ -1,8 +1,8 @@
 <?php
-namespace O3Com\Crawler\Traverser\Node\Factory;
+namespace O3Co\Crawler\Traverser\Node\Factory;
 
-use O3Com\Crawler\Traverser\Node;
-use O3Com\Crawler\Traverser\Node\Factory;
+use O3Co\Crawler\Traverser\Node;
+use O3Co\Crawler\Traverser\Node\Factory;
 
 /**
  * DefaultNodeFactory 

@@ -1,15 +1,15 @@
 <?php
-namespace O3Com\Crawler\Traverser\Node;
+namespace O3Co\Crawler\Traverser\Node;
 
-use O3Com\Crawler\Traverser\Node;
-use O3Com\Crawler\Traverser\Page;
-use O3Com\Crawler\Traverser\Traversal;
-use O3Com\Crawler\Traverser\AbstractTraverser;
-use O3Com\Crawler\Scraper;
-use O3Com\Crawler\Exception\SkipException;
+use O3Co\Crawler\Traverser\Node;
+use O3Co\Crawler\Traverser\Page;
+use O3Co\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Traverser\AbstractTraverser;
+use O3Co\Crawler\Scraper;
+use O3Co\Crawler\Exception\SkipException;
 
-use O3Com\Crawler\Traverser\Handler;
-use O3Com\Crawler\Event\TraversalEvents;
+use O3Co\Crawler\Traverser\Handler;
+use O3Co\Crawler\Event\TraversalEvents;
 
 
 abstract class AbstractNode extends AbstractTraverser implements Node

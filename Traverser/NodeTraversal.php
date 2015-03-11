@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Traverse;
+namespace O3Co\Crawler\Traverse;
 
 class NodeTraversal extends AbstractTraversal 
 {

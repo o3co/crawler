@@ -1,7 +1,7 @@
 <?php
-namespace O3Com\Crawler\Event;
+namespace O3Co\Crawler\Event;
 
-use O3Com\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Traverser\Traversal;
 
 /**
  * TraversalEvent 

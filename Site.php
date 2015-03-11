@@ -1,17 +1,17 @@
 <?php
-namespace O3Com\Crawler;
+namespace O3Co\Crawler;
 
-use O3Com\Crawler\Traverser;
-use O3Com\Crawler\Traverser\Node;
-use O3Com\Crawler\Traverser\SiteTraversal;
+use O3Co\Crawler\Traverser;
+use O3Co\Crawler\Traverser\Node;
+use O3Co\Crawler\Traverser\SiteTraversal;
 
-use O3Com\Crawler\Client;
+use O3Co\Crawler\Client;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\Event;
 
-use O3Com\Crawler\Traverser\Node\Factory\DefaultNodeFactory;
-use O3Com\Crawler\Exception\TerminateException;
-use O3Com\Crawler\Exception\SkipException;
+use O3Co\Crawler\Traverser\Node\Factory\DefaultNodeFactory;
+use O3Co\Crawler\Exception\TerminateException;
+use O3Co\Crawler\Exception\SkipException;
 
 /**
  * Site 

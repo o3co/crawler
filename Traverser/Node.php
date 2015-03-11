@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Traverser;
+namespace O3Co\Crawler\Traverser;
 
 interface Node
 {

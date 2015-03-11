@@ -1,11 +1,11 @@
 <?php
-namespace O3Com\Crawler\Traverser\Handler;
+namespace O3Co\Crawler\Traverser\Handler;
 
-use O3Com\Crawler\Traverser\Traversal;
-use O3Com\Crawler\Page;
-use O3Com\Crawler\Scraper;
-use O3Com\Crawler\Event\ScrapeEvents,
-	O3Com\Crawler\Event\ScrapeEvent;
+use O3Co\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Page;
+use O3Co\Crawler\Scraper;
+use O3Co\Crawler\Event\ScrapeEvents,
+	O3Co\Crawler\Event\ScrapeEvent;
 
 /**
  * ScrapeHandler 

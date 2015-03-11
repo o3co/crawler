@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Traverser\Handler;
+namespace O3Co\Crawler\Traverser\Handler;
 
 class VisitHandler extends 
 {

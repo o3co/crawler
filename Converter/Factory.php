@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  * 
  */
-namespace O3Com\Crawler\Converter;
+namespace O3Co\Crawler\Converter;
 
 /**
  * Factory 

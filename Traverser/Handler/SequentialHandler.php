@@ -1,8 +1,8 @@
 <?php
-namespace O3Com\Crawler\Traverser\Handler;
+namespace O3Co\Crawler\Traverser\Handler;
 
-use O3Com\Crawler\Traverser\Handler;
-use O3Com\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Traverser\Handler;
+use O3Co\Crawler\Traverser\Traversal;
 
 /**
  * SequentialHandler 

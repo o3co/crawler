@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Exception;
+namespace O3Co\Crawler\Exception;
 
 /**
  * SkipException 

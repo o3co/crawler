@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Tests\Traverser;
+namespace O3Co\Crawler\Tests\Traverser;
 
 class SiteTest extends \PHPUnit_Framework_TestCase 
 {

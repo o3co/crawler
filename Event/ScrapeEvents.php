@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\Event;
+namespace O3Co\Crawler\Event;
 
 class ScrapeEvents 
 {

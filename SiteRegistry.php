@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler;
+namespace O3Co\Crawler;
 
 /**
  * SiteRegistry 

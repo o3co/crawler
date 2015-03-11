@@ -1,5 +1,5 @@
 {
-    "name": "o3com/crawler",
+    "name": "o3co/crawler",
     "description": "Library for CrawlingEngine",
     "license": "MIT",
     "authors": [
@@ -18,7 +18,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"O3Com\\Crawler\\": ""
+			"O3Co\\Crawler\\": ""
 		}
 	}
 }

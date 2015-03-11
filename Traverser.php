@@ -1,7 +1,7 @@
 <?php
-namespace O3Com\Crawler;
+namespace O3Co\Crawler;
 
-use O3Com\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Traverser\Traversal;
 
 /**
  * Traverser 

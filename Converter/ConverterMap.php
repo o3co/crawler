@@ -1,7 +1,7 @@
 <?php
-namespace O3Com\Crawler\Converter;
+namespace O3Co\Crawler\Converter;
 
-use O3Com\Crawler\Converter;
+use O3Co\Crawler\Converter;
 
 /**
  * ConverterMap 

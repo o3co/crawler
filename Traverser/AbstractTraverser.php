@@ -1,13 +1,13 @@
 <?php
-namespace O3Com\Crawler\Traverser;
+namespace O3Co\Crawler\Traverser;
 
-use O3Com\Crawler\Traverser;
-use O3Com\Crawler\Traverser\Traversal;
-use O3Com\Crawler\Event\TraversalEvents,
-	O3Com\Crawler\Event\TraversalEvent
+use O3Co\Crawler\Traverser;
+use O3Co\Crawler\Traverser\Traversal;
+use O3Co\Crawler\Event\TraversalEvents,
+	O3Co\Crawler\Event\TraversalEvent
 ;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use O3Com\Crawler\Exception\TerminateException;
+use O3Co\Crawler\Exception\TerminateException;
 
 /**
  * AbstractTraverser 

@@ -1,5 +1,5 @@
 <?php
-namespace O3Com\Crawler\File;
+namespace O3Co\Crawler\File;
 
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser,

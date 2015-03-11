@@ -1,8 +1,8 @@
 <?php
-namespace O3Com\Crawler;
+namespace O3Co\Crawler;
 
 use Goutte\Client as BaseClient;
-use O3Com\Crawler\Downloader\GuzzleDownloader;
+use O3Co\Crawler\Downloader\GuzzleDownloader;
 
 /**
  * Client 

@@ -1,8 +1,8 @@
 <?php
-namespace O3Com\Crawler\Trigger;
+namespace O3Co\Crawler\Trigger;
 
-use O3Com\Crawler\TriggerSubscriber;
-use O3Com\Crawler\Traverser\Traversal;
+use O3Co\Crawler\TriggerSubscriber;
+use O3Co\Crawler\Traverser\Traversal;
 
 class CookieTriggerSubscriber implements TriggerSubscriber
 {

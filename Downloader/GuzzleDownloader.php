@@ -1,12 +1,12 @@
 <?php
-namespace O3Com\Crawler\Downloader;
+namespace O3Co\Crawler\Downloader;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Pool as GuzzlePool;
 use GuzzleHttp\Message\Response as GuzzleResponse;
 
-use O3Com\Crawler\File\DownloadedFile;
-use O3Com\Crawler\Util\HttpTool;
+use O3Co\Crawler\File\DownloadedFile;
+use O3Co\Crawler\Util\HttpTool;
 
 class GuzzleDownloader  
 {

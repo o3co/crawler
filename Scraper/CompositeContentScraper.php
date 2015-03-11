@@ -1,7 +1,7 @@
 <?php
-namespace O3Com\Crawler\Scraper;
+namespace O3Co\Crawler\Scraper;
 
-use O3Com\Crawler\Scraper;
+use O3Co\Crawler\Scraper;
 use Symfony\Component\DomCrawler\Crawler;
 /**
  * CompositeContentScraper 
