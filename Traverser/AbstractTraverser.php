@@ -36,7 +36,6 @@ abstract class AbstractTraverser implements Traverser
 		$this->attachListeners($traversal->getEventDispatcher());
 
 		try {
-	
 			// open page
 			$this->enterTraverse($traversal);
 	
@@ -47,7 +46,6 @@ abstract class AbstractTraverser implements Traverser
 				$this->doTraverse($traversal);
 	
 				$this->dispatch($traversal->getEventDispatcher(), TraversalEvents::onPostTraverse, new TraversalEvent($traversal));
-
 
 				$this->dispatch($traversal->getEventDispatcher(), TraversalEvents::onResponse, new TraversalEvent($traversal));
 

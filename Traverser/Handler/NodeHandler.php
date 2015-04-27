@@ -26,9 +26,6 @@ class NodeHandler extends AbstractHandler
 
 	protected function doHandle(Traversal $traversal)
 	{
-		//$inScopeTraversal = $traversal->createNodeTraversal($this->getNode());
-		//$inScopeTraversal = $traversal;
-
 		$traverser = $traversal->get('traverser');
 
 		$traversal->set('traverser', $this->node);

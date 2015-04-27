@@ -13,6 +13,9 @@ class TraversalEvents
 	const onPrePageVisit   = 'pre_page_visit';
 	const onPostPageVisit  = 'post_page_visit';
 
+	const onPrePageLeave   = 'pre_page_leave';
+	const onPostPageLeave  = 'post_page_leave';
+
 
 	const onException      = 'on_exception';
 	const onResponse       = 'on_response';

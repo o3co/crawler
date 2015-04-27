@@ -93,16 +93,22 @@ class SiteTraversal extends AbstractTraversal implements Traversal
 
 	public function back()
 	{
-		$this->dispatch('pre_leave', new TraversalEvent($this));
+		$this->dispatch(TraversalEvents::onPrePageLeave, new TraversalEvent($this));
 
 		$this->getClient()->back();
 		$this->leavePage();
 
-		$this->dispatch('post_leave', new TraversalEvent($this));
+		$this->dispatch(TraversalEvents::onPostPageLeave, new TraversalEvent($this));
 	}
 
 	public function dispatch($eventname, $event)
 	{
+        if($this->has('traverser'))  {
+            $traverser = $this->get('traverser');
+            if($traverser instanceof AbstractTraverser) {
+                return $traverser->dispatch($this->getSite()->getEventDispatcher(), $eventname, $event);
+            }
+        }
 		$this->getSite()->dispatch($eventname, $event);
 	}
 

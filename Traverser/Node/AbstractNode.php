@@ -76,6 +76,9 @@ abstract class AbstractNode extends AbstractTraverser implements Node
 
 		$page
 			->onEnterTraverse(function($traversal) use ($url, $method, $options){
+                    if(is_callable($url)) {
+                        $url = $url($traversal);
+                    }
 					// visit the page
 					$traversal->visit($url, $method, $options);
 				})

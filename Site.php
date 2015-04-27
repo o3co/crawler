@@ -6,6 +6,7 @@ use O3Co\Crawler\Traverser\Node;
 use O3Co\Crawler\Traverser\SiteTraversal;
 
 use O3Co\Crawler\Client;
+use O3Co\Crawler\Event\TraversalEvents;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\Event;
 
@@ -195,7 +196,13 @@ class Site
 	 */
 	public function visit($url, $method = 'GET')
 	{
-		return $this->root->visit($url, $method);
+		$firstPage = $this->root->visit($url, $method);
+        
+        $firstPage->addListener(TraversalEvents::onPrePageLeave, function(){
+            throw new TerminateException('Complete');
+        });
+
+        return $firstPage;
 	}
 
 	/**
@@ -221,7 +228,11 @@ class Site
 
 		//$traversal->init();
 		
-		$this->root->traverse($traversal);
+        try {
+		    $this->root->traverse($traversal);
+        } catch(CrawlerException\TerminateException $ex) {
+            // complete successfully
+        }
 
 		return $traversal;
 	}
